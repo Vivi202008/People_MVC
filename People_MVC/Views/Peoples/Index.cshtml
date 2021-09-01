@@ -1,0 +1,44 @@
+﻿@model People_MVC.Models.ViewModel.PeopleViewModel;
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Welcome to People's table</h1>
+
+
+
+<form asp-action="Index" method="post">
+    <label asp-for="Search">Please input something to search</label>
+    <input asp-for="Search" />
+    <input type="submit" value="Search">
+
+</form>
+
+<form>
+    <a asp-action="Create">Create</a>
+</form>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>ID</th>
+            <th>City</th>
+            <th>Name</th>
+            <th>Telephone Number</th>
+            <th>Action</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model.PeopleList)
+        {
+            <tr>
+                <td>@item.ID</td>
+                <td>@item.City</td>
+                <td>@item.Name</td>
+                <td>@item.TeleNumber</td>
+                <td><a asp-action="Delete" asp-route-id="@item.ID">Delete</a></td>
+            </tr>
+       }
+    </tbody>
+</table>
