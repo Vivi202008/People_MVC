@@ -33,6 +33,11 @@ namespace People_MVC.Controllers
             return View(_peopleService.All());
         }
 
+        public PartialViewResult ListOfPeople()
+        {
+            return PartialView();
+        }
+
         [HttpPost]
         public IActionResult Index(PeopleViewModel peopleViewModel)
         {

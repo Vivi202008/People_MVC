@@ -16,29 +16,24 @@
 </form>
 
 <form>
-    <a asp-action="Create">Create</a>
+   <label><a asp-action="Create">Create a new person record!</a> </label> 
 </form>
 
-<table class="table">
+
+
+
+<table class="table table-hover">
     <thead>
         <tr>
-            <th>ID</th>
-            <th>City</th>
-            <th>Name</th>
-            <th>Telephone Number</th>
-            <th>Action</th>
+            <th scope="col">ID</th>
+            <th scope="col">City</th>
+            <th scope="col">Name</th>
+            <th scope="col">Telephone Number</th>
+            <th scope="col">Action</th>
         </tr>
     </thead>
-    <tbody>
-        @foreach (var item in Model.PeopleList)
-        {
-            <tr>
-                <td>@item.ID</td>
-                <td>@item.City</td>
-                <td>@item.Name</td>
-                <td>@item.TeleNumber</td>
-                <td><a asp-action="Delete" asp-route-id="@item.ID">Delete</a></td>
-            </tr>
-       }
-    </tbody>
 </table>
+@foreach (var item in Model.PeopleList)
+{
+    @await Html.PartialAsync("_People", item);
+}

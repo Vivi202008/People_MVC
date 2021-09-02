@@ -1,4 +1,5 @@
 ﻿@model CreatePersonViewModel
+
 @{
     ViewData["Title"] = "Creat";
 }
@@ -7,7 +8,7 @@
 
 <form asp-action="Create" asp-controller="Peoples" method="post">
     <label asp-for="City"></label>
-     <input asp-for="City" />
+    <input asp-for="City" />
     <span asp-validation-for="City"></span>
 
     <label asp-for="Name"></label>
@@ -21,3 +22,10 @@
     <button type="submit">Create</button>
     <button type="reset">Reset</button>
 </form>
+
+@*@foreach (var item in PeopleViewModel.PeopleList)
+{
+    @await Html.PartialAsync("_People", item);
+}*@
+
+

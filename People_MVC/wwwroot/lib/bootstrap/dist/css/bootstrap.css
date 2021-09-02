@@ -206,7 +206,9 @@ svg {
 }
 
 table {
-  border-collapse: collapse;
+    border-collapse: collapse;
+    margin: auto;
+    text-align:left;
 }
 
 caption {
