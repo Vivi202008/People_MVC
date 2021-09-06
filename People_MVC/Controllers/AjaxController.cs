@@ -3,7 +3,6 @@ using People_MVC.Models;
 using People_MVC.Models.Repo;
 using People_MVC.Models.Service;
 using People_MVC.Models.ViewModel;
-using System.Collections.Generic;
 
 
 namespace People_MVC.Controllers
@@ -12,7 +11,6 @@ namespace People_MVC.Controllers
     {
         private readonly IPeopleService _peopleService;
         private readonly IPeopleRepo _peopleRepo;
-        readonly PeopleService peopleService;
 
         public AjaxController(IPeopleService peopleService, IPeopleRepo peopleRepo)
         {
@@ -46,8 +44,7 @@ namespace People_MVC.Controllers
         }
 
         public IActionResult PersonDetails(int ID)
-        {
-                 
+        {      
             return PartialView("_PersonDetails",_peopleRepo.Read(ID));
         }
 
