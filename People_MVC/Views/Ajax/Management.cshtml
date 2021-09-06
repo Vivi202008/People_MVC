@@ -1,0 +1,78 @@
+﻿@using People_MVC.Models
+
+@model PeopleViewModel
+
+<h3>Welcome to Management</h3>
+
+<form >
+    <label asp-for="Search" >Please input an ID to search</label>
+    <input asp-for="Search" id="searchID"/>
+    <button type="submit" asp-controller="Ajax" asp-for="Search" class="btn btn-secondary" id="btnDisplay">Display</button>
+    <button type="submit" asp-controller="Ajax" asp-for="Delete" class="btn btn-success" id="btnDelete">Delete</button>
+    <button type="submit" id="btnDisplayAll" class="btn btn-secondary">DisplayAll</button><br />
+</form>
+
+<div class="row">
+    <div class="col-md-8 col-lg-offset-3">
+        <h2>People's record</h2>
+        <table id="table" class="table-striped">
+            <tr>
+                <th>ID</th>
+                <th>Name</th>
+                <th>City</th>
+                <th>TelephoneNumber</th>
+            </tr>
+        </table>
+    </div>
+
+</div>
+<div id="dvShow">
+    <h1>First Partial View</h1>
+</div>
+
+
+
+@{
+    ViewBag.Title = "Management";
+}
+
+<style>
+    #table tr th {
+        color: white;
+        width: 300px;
+        height: 40px;
+        text-decoration: solid;
+        background-color: yellowgreen;
+        padding: 10px;
+    }
+</style>
+
+<script src="~/lib/jquery/dist/jquery.js"></script>
+
+@*<script type="text/javascript">
+    $("#btnDisplayAll").click(function (e) {
+        e.preventDefault();
+        var_this = $(this);
+        $.get(_this.attr("href"),
+            function (res) {
+                $('#' + _this.data("target")).html(res);
+            });
+    });
+</script>*@
+
+<script>
+    $(document).ready(function () {
+        $("#btnDisplayAll").click(function () {
+            $('#dvShow').load("/Ajax/Show");
+        });
+
+        $("#btnDisplay").click(function () {
+            var id = $("#searchID").val();
+            $('#dvShow').load("/Ajax/PersonDetails", { ID: id });
+        });
+
+        $("#btnDelete").click(function () {
+            var id = $("#searchID").val();
+            $('#dvShow').load("/Ajax/Delete", { ID: id });
+            alert("@ViewBag.Message")
+</script>

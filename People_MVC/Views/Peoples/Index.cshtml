@@ -16,7 +16,7 @@
 </form>
 
 <form>
-   <label><a asp-action="Create">Create a new person record!</a> </label> 
+    <label><a asp-action="Create">Create a new person's record!</a> </label>
 </form>
 
 
@@ -35,5 +35,6 @@
 </table>
 @foreach (var item in Model.PeopleList)
 {
-    @await Html.PartialAsync("_People", item);
-}
+    @*@await Html.PartialAsync("_ShowAll", item);*@
+    <partial name="_People.cshtml" model="item" />
+  }

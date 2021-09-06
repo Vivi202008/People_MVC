@@ -44,7 +44,6 @@ namespace People_MVC.Controllers
             //    peopleViewModel.PeopleList = _peopleService.FindBy(peopleViewModel.Search);
             //    return View(peopleViewModel);
 
-
             PeopleViewModel people = new PeopleViewModel();
 
             if (!string.IsNullOrEmpty(peopleViewModel.Search))
@@ -80,7 +79,5 @@ namespace People_MVC.Controllers
             _peopleService.Remove(id);
             return View("Index", _peopleService.All());
         }
-
-
     }
 }

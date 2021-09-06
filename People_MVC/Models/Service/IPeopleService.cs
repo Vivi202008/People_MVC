@@ -9,6 +9,8 @@ namespace People_MVC.Models.Service
 {
     public interface IPeopleService
     {
+        object DataEx { get; set; }
+
         Person Add(CreatePersonViewModel person);
         PeopleViewModel All();
         PeopleViewModel FindBy(PeopleViewModel search);

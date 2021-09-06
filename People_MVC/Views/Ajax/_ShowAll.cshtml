@@ -1,0 +1,35 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@model IList<People_MVC.Models.Person>;
+
+@{
+    ViewBag.Title = "ListPage";
+}
+
+
+<h2>分布页</h2>
+<table class="table table-striped">
+    <thead>
+        @{ People_MVC.Models.Person p = null;}
+        <tr>
+            <th>@Html.LabelFor(m => @p.ID)</th>
+            <th>@Html.LabelFor(m => @p.Name)</th>
+            <th>@Html.LabelFor(m => @p.City)</th>
+            <th>@Html.LabelFor(m => @p.TeleNumber)</th>
+        </tr>
+
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>@item.ID</td>
+                <td>@item.Name</td>
+                <td>@item.City</td>
+                <td>@item.TeleNumber</td>
+            </tr>
+        }
+    </tbody>
+</table>
+

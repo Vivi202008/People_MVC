@@ -12,6 +12,8 @@ namespace People_MVC.Models.Service
         IPeopleRepo _peopleRepo;
         public static List<Person> _peopleList = new List<Person>();
 
+        public object DataEx { get => throw new NotImplementedException(); set => throw new NotImplementedException(); }
+
         public PeopleService(IPeopleRepo peopleRepo)
         {
             _peopleRepo = peopleRepo;
