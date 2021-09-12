@@ -63,14 +63,15 @@ namespace People_MVC.Controllers
         }
 
         [HttpPost]
-        public IActionResult Create(CreatePersonViewModel person)
+        public IActionResult Create(Person person)
         {
             if (ModelState.IsValid)
-            {
-                _peopleService.Add(person);
-                return RedirectToAction(nameof(Index));
-            }
-            return View(person);
+                    {
+                        Person person1 = _peopleRepo.Create(person);
+                        _ = person1;
+                        return RedirectToAction(nameof(Index));
+                    }
+                return View(new CreatePersonViewModel());
         }
 
         [HttpGet]
